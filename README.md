@@ -28,6 +28,20 @@ List of paths to JS files within the project to inject before injecting cordova 
 
 <preference name="CRIInjectFirstFiles" value="www/js/file1.js,www/js/file2.js" />
 
+### CRIInjectLastFiles
+```xml
+<preference name="CRIInjectLastFiles" value="www/js/init.js" />
+```
+
+<dl>
+<dt>Type</dt><dd>String</dd>
+<dt>Default</dt><dd>none</dd>
+</dl>
+
+List of paths to JS files within the project to inject after injecting cordova into the remote site.  To inject multiple separate the files with a ",".
+
+<preference name="CRIInjectLastFiles" value="www/js/file1.js,www/js/file2.js" />
+
 ### CRIPageLoadPromptInterval
 ```xml
 <preference name="CRIPageLoadPromptInterval" value="5" />

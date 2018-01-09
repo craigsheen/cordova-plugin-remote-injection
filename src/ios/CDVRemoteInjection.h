@@ -6,6 +6,7 @@
 
 @interface CDVRemoteInjectionPlugin : CDVPlugin
 @property (readonly) NSArray *injectFirstFiles;
+@property (readonly) NSArray *injectLastFiles;
 /*
 From CRIPageLoadPromptInterval preference.  Wait period in seconds before prompting the
 end user about a slow request.  Default is 10 which feels safe.  Off by default
@@ -17,7 +18,7 @@ From CRIShowConnectionErrorDialog preference.  Defaults to true.  False if prefe
 is set to 0.
  */
 @property (readonly) BOOL showConnectionErrorDialog;
-    
+
 - (id) findWebView;
 @end
 

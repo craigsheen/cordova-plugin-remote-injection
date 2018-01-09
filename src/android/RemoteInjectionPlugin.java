@@ -40,6 +40,11 @@ public class RemoteInjectionPlugin extends CordovaPlugin {
         for (String path: pref.split(",")) {
             preInjectionFileNames.add(path.trim());
         }
+        String pref = webView.getPreferences().getString("CRIInjectLastFiles", "");
+        for (String path: pref.split(",")) {
+            postInjectionFileNames.add(path.trim());
+        }
+
         promptInterval = webView.getPreferences().getInteger("CRIPageLoadPromptInterval", 10);
 
         final Activity activity = super.cordova.getActivity();
@@ -128,6 +133,10 @@ public class RemoteInjectionPlugin extends CordovaPlugin {
 
         // Initialize the cordova plugin registry.
         jsPaths.add("www/cordova_plugins.js");
+
+        for (String path: postInjectionFileNames) {
+            jsPaths.add(path);
+        }
 
         // The way that I figured out to inject for android is to inject it as a script
         // tag with the full JS encoded as a data URI
